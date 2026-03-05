@@ -1,0 +1,10 @@
+Check,Value
+Raw rows,2688
+Valid rows after cleaning,1344
+Rows removed,1344
+Expected balanced panel rows,1344
+Missing panel rows,0
+"Duplicate keys (Region,Source,Year)",0
+Unique regions,14
+Unique sources,8
+Year span,2005 - 2016

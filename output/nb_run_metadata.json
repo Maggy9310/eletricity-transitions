@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-03-05T00:08:19.516259+00:00",
+  "python_version": "3.12.11",
+  "platform": "macOS-10.16-x86_64-i386-64bit",
+  "random_seed": 42,
+  "rows_used": 1344,
+  "regions": 14,
+  "sources": 8,
+  "years": 12,
+  "best_cluster_k": 3,
+  "classification_acc_groupcv_mean": 0.4333333333333334,
+  "classification_f1_groupcv_mean": 0.2867171717171717,
+  "forecast_mae_mean": 1134.2452047557122
+}
