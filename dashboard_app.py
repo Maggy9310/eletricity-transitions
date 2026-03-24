@@ -754,7 +754,7 @@ with tab1:
             )
             fig_mix.update_yaxes(range=[0, 100])
             fig_mix.update_layout(xaxis_title=f"Region ({latest_year})")
-            st.plotly_chart(fig_style(fig_mix, height=390, showlegend=True), width="stretch")
+            st.plotly_chart(fig_style(fig_mix, height=390, showlegend=True))
 
     with c2:
         st.subheader("Source Shift: Start vs Latest")
@@ -810,7 +810,7 @@ with tab1:
                 color_discrete_map={f"Share {start_year}": "#94a3b8", f"Share {end_year}": "#2563eb"},
                 labels={"SharePct": "Share (%)"},
             )
-            st.plotly_chart(fig_style(fig_comp, height=390, showlegend=True), width="stretch")
+            st.plotly_chart(fig_style(fig_comp, height=390, showlegend=True))
 
     c3, c4 = st.columns(2)
     with c3:
@@ -835,7 +835,7 @@ with tab1:
             render_echarts(option_can_total, height=320, key="ech_can_total")
         else:
             fig_can_total = px.line(can_total, x="Year", y="Data", labels={"Data": "Capacity (MW)"})
-            st.plotly_chart(fig_style(fig_can_total, height=320, showlegend=False), width="stretch")
+            st.plotly_chart(fig_style(fig_can_total, height=320, showlegend=False))
 
     with c4:
         st.subheader("Renewable vs Non-Renewable Capacity")
@@ -880,7 +880,7 @@ with tab1:
         else:
             mix_plot = piv_mix.reset_index().melt(id_vars="Year", value_vars=["Renewable", "Non-Renewable"], var_name="EnergyType", value_name="Capacity")
             fig_mix_time = px.area(mix_plot, x="Year", y="Capacity", color="EnergyType")
-            st.plotly_chart(fig_style(fig_mix_time, height=320, showlegend=True), width="stretch")
+            st.plotly_chart(fig_style(fig_mix_time, height=320, showlegend=True))
 
     c5, c6 = st.columns(2)
     with c5:
@@ -929,7 +929,7 @@ with tab1:
                 hole=0.52,
             )
             fig_donut.update_traces(textposition="inside", textinfo="percent+label")
-            st.plotly_chart(fig_style(fig_donut, height=340, showlegend=True), width="stretch")
+            st.plotly_chart(fig_style(fig_donut, height=340, showlegend=True))
 
     with c6:
         st.subheader("Animated Source Capacity Race (Canada)")
@@ -957,7 +957,7 @@ with tab1:
                         render_echarts(option_sr, height=340, key=f"ech_src_race_{int(yr)}")
                 else:
                     fig_sr = px.bar(fr, x="Data", y="Source", orientation="h", title=f"Year {int(yr)}")
-                    race_src_placeholder.plotly_chart(fig_style(fig_sr, height=340, showlegend=False), width="stretch")
+                    race_src_placeholder.plotly_chart(fig_style(fig_sr, height=340, showlegend=False))
                 time.sleep(float(anim_speed))
         elif race_src_years:
             yr = race_src_years[-1]
@@ -974,7 +974,7 @@ with tab1:
                     render_echarts(option_sr, height=340, key=f"ech_src_race_static_{int(yr)}")
             else:
                 fig_sr = px.bar(fr, x="Data", y="Source", orientation="h", title=f"Year {int(yr)}")
-                race_src_placeholder.plotly_chart(fig_style(fig_sr, height=340, showlegend=False), width="stretch")
+                race_src_placeholder.plotly_chart(fig_style(fig_sr, height=340, showlegend=False))
 
 with tab2:
     st.markdown(
@@ -1024,7 +1024,7 @@ with tab2:
                 render_echarts(option_tr, height=330, key="ech_renew_trend")
             else:
                 fig_tr = px.line(trend_df, x="Year", y="RenewableShare", markers=True, labels={"RenewableShare": "Renewable Share (%)"})
-                st.plotly_chart(fig_style(fig_tr, height=330, showlegend=False), width="stretch")
+                st.plotly_chart(fig_style(fig_tr, height=330, showlegend=False))
 
     with c4:
         st.subheader("Volatility vs Capacity Map")
@@ -1047,7 +1047,7 @@ with tab2:
                 labels={"CV": "Volatility (CV %)", "Mean": "Average Capacity (MW)"},
             )
             fig_vol.update_traces(marker={"opacity": 0.85, "line": {"width": 0.5, "color": "white"}})
-            st.plotly_chart(fig_style(fig_vol, height=330, showlegend=True), width="stretch")
+            st.plotly_chart(fig_style(fig_vol, height=330, showlegend=True))
         else:
             st.info("No data available for the current filters to build this panel.")
 
@@ -1085,7 +1085,7 @@ with tab2:
             y="DeltaPctPt",
             labels={"DeltaPctPt": "Change in Renewable Share (pct-pt)"},
         )
-        st.plotly_chart(fig_style(fig_mom, height=320, showlegend=False), width="stretch")
+        st.plotly_chart(fig_style(fig_mom, height=320, showlegend=False))
 
     st.subheader("Transition Path")
     chart_mode = st.radio(
@@ -1152,7 +1152,7 @@ with tab2:
                 fig_line = px.line(frame, x="Year", y="Value", color="Series", markers=False)
                 fig_line.update_yaxes(range=[y_min, y_max], title=y_name)
                 fig_line.update_xaxes(range=[years[0], years[-1]], title="Year")
-                line_placeholder.plotly_chart(fig_style(fig_line, height=450, showlegend=True), width="stretch")
+                line_placeholder.plotly_chart(fig_style(fig_line, height=450, showlegend=True))
             time.sleep(float(anim_speed))
     elif years:
         frame = line_df.sort_values(["Series", "Year"])
@@ -1185,7 +1185,7 @@ with tab2:
             fig_line = px.line(frame, x="Year", y="Value", color="Series", markers=False)
             fig_line.update_yaxes(range=[y_min, y_max], title=y_name)
             fig_line.update_xaxes(range=[years[0], years[-1]], title="Year")
-            line_placeholder.plotly_chart(fig_style(fig_line, height=450, showlegend=True), width="stretch")
+            line_placeholder.plotly_chart(fig_style(fig_line, height=450, showlegend=True))
 
 with tab3:
     st.markdown(
@@ -1226,7 +1226,7 @@ with tab3:
                     ignore_index=True,
                 )
                 fig.add_trace(go.Scatter(x=line["Year"], y=line["Forecast_MW"], mode="lines+markers", name=m))
-            st.plotly_chart(fig_style(fig, height=430, showlegend=True), width="stretch")
+            st.plotly_chart(fig_style(fig, height=430, showlegend=True))
 
         with right:
             met = met.sort_values(["RMSE", "MAE"]).reset_index(drop=True)
@@ -1403,7 +1403,7 @@ with tab4:
                 fc_plot["Series"] = "Forecast"
                 combo_plot = pd.concat([hist_plot[["Year", "Actual_MW", "Series"]], fc_plot], ignore_index=True)
                 fig_fo = px.line(combo_plot, x="Year", y="Actual_MW", color="Series", title="Live forecast deliverable")
-                st.plotly_chart(fig_style(fig_fo, height=300), width="stretch")
+                st.plotly_chart(fig_style(fig_fo, height=300))
 
             fo_table = fo[[c for c in ["Year", "Forecast_MW", "Lower80_MW", "Upper80_MW"] if c in fo.columns]].copy()
             fo_table["Model"] = best_model_deliv
