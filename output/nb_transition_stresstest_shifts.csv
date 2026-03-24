@@ -1,0 +1,14 @@
+Region,BaselineClass,ScenarioClass,Changed
+AB,Emerging,Emerging,False
+BC,Leader,Leader,False
+MB,Mature-Stable,Leader,True
+NB,Lagging,Leader,True
+NL,Mature-Stable,Mature-Stable,False
+NS,Emerging,Leader,True
+NT,Emerging,Leader,True
+NU,Lagging,Lagging,False
+ON,Leader,Leader,False
+PE,Leader,Leader,False
+QC,Mature-Stable,Mature-Stable,False
+SK,Lagging,Lagging,False
+YT,Leader,Leader,False
